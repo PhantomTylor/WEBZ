@@ -65,7 +65,7 @@ router.get('/', async (req, res) => {
 
                         const mega_url = await upload(fs.createReadStream(auth_path + 'creds.json'), `${randomMegaId()}.json`);
 
-                        const string_session = mega_url.replace('https://mega.nz/file/', '');
+                        const string_session = mega_url.replace('https://mega.nz/file/', 'XPLOADER~');
 
                         const sid = string_session;
 
@@ -86,7 +86,7 @@ router.get('/', async (req, res) => {
                 }
             });
         } catch (err) {
-            exec('pm2 restart prabath-md');
+            exec('pm2 restart prabath');
             console.log("service restarted");
             PrabathPair();
             await removeFile('./session');
